@@ -18,14 +18,14 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(path: "../swift-memory-primitives"),
-        .package(path: "../swift-iterator-primitives"),
+        .package(url: "https://github.com/swift-primitives/swift-span-primitives.git", branch: "main"),
+        .package(url: "https://github.com/swift-primitives/swift-iterator-primitives.git", branch: "main"),
     ],
     targets: [
         .target(
             name: "Memory Iterator Primitives",
             dependencies: [
-                .product(name: "Memory Contiguous Primitives", package: "swift-memory-primitives"),
+                .product(name: "Span Protocol Primitives", package: "swift-span-primitives"),
                 .product(name: "Iterator Primitive", package: "swift-iterator-primitives"),
                 .product(name: "Iterable", package: "swift-iterator-primitives"),
                 .product(name: "Iterator Chunk Primitives", package: "swift-iterator-primitives"),
@@ -33,7 +33,9 @@ let package = Package(
         ),
         .testTarget(
             name: "Memory Iterator Primitives Tests",
-            dependencies: ["Memory Iterator Primitives"]
+            dependencies: [
+                "Memory Iterator Primitives",
+            ]
         ),
     ],
     swiftLanguageModes: [.v6]

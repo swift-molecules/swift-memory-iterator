@@ -1,0 +1,9 @@
+# .github/metadata.yaml
+description: "Bridges contiguous Span.Protocol conformers to iteration, vending the canonical span-backed iterator once a type opts into Iterable."
+topics:
+  - primitives
+  - iterator
+  - span
+homepage: "https://swift-institute.org"
+readme:
+  family: E
