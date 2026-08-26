@@ -1,4 +1,4 @@
-# Memory Iterator Primitives
+# Memory Iterator
 
 ![Development Status](https://img.shields.io/badge/status-active--development-blue.svg)
 
@@ -11,7 +11,7 @@ The bridge from contiguous storage to iteration: gives any `Span.Protocol` confo
 Iteration is kept out of the span capability's identity — a contiguous type that vends a `Swift.Span` is not, by that fact alone, iterable. This package supplies the one missing edge: a constrained extension that hands every `Span.Protocol` conformer a default `makeIterator()` as soon as it declares `: Iterable`. The iterator it vends is the canonical bulk `Iterator.Chunk` over the conformer's own span, so iteration is opt-in per type and there is no second iterator to write.
 
 ```swift
-import Memory_Iterator_Primitives
+import Memory_Iterator
 
 // `Swift.Span` is already the canonical `Span.Protocol` conformer — it vends itself.
 // Opting it into `Iterable` is the whole ceremony: this package supplies the default
@@ -34,7 +34,7 @@ print(total)                        // span-backed `Iterator.Chunk`            �
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-primitives/swift-memory-iterator-primitives.git", branch: "main")
+    .package(url: "https://github.com/swift-molecules/swift-memory-iterator.git", branch: "main")
 ]
 ```
 
@@ -42,7 +42,7 @@ dependencies: [
 .target(
     name: "App",
     dependencies: [
-        .product(name: "Memory Iterator Primitives", package: "swift-memory-iterator-primitives"),
+        .product(name: "Memory Iterator", package: "swift-memory-iterator"),
     ]
 )
 ```
@@ -57,9 +57,9 @@ One library product. The whole package is a single constrained extension plus th
 
 | Product | Target | Purpose |
 |---------|--------|---------|
-| `Memory Iterator Primitives` | `Sources/Memory Iterator Primitives/` | Supplies the `Span.Protocol where Self: Iterable` default `makeIterator()`, vending `Iterator.Chunk` over the conformer's span; `@_exported`s `Iterable` and `Iterator Chunk Primitives` so a single import brings the capability and the iterator into scope. |
+| `Memory Iterator` | `Sources/Memory Iterator/` | Supplies the `Span.Protocol where Self: Iterable` default `makeIterator()`, vending `Iterator.Chunk` over the conformer's span; `@_exported`s `Iterable` and `Iterator Chunk` so a single import brings the capability and the iterator into scope. |
 
-Depends only on `Span Protocol Primitives`, `Iterable`, `Iterator Primitive`, and `Iterator Chunk Primitives`. Foundation-free.
+Depends only on `Span Protocol`, `Iterable`, `Iterator Primitive`, and `Iterator Chunk`. Foundation-free.
 
 ---
 

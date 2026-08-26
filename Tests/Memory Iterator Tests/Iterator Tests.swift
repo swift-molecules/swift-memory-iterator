@@ -1,6 +1,6 @@
 import Testing
 
-@testable import Memory_Iterator_Primitives
+@testable import Memory_Iterator
 
 extension Iterator {
     @Suite struct Tests {

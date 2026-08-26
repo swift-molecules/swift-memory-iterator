@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-memory-iterator-primitives",
+    name: "swift-memory-iterator",
     platforms: [
         .macOS(.v27),
         .iOS(.v27),
@@ -13,34 +13,34 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "Memory Iterator Primitives",
-            targets: ["Memory Iterator Primitives"]
+            name: "Memory Iterator",
+            targets: ["Memory Iterator"]
         )
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-primitives/swift-span-primitives.git",
+            url: "https://github.com/swift-molecules/swift-span.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-primitives/swift-iterator-primitives.git",
+            url: "https://github.com/swift-molecules/swift-iterator.git",
             branch: "main"
         ),
     ],
     targets: [
         .target(
-            name: "Memory Iterator Primitives",
+            name: "Memory Iterator",
             dependencies: [
-                .product(name: "Span Protocol Primitives", package: "swift-span-primitives"),
-                .product(name: "Iterator Primitive", package: "swift-iterator-primitives"),
-                .product(name: "Iterable", package: "swift-iterator-primitives"),
-                .product(name: "Iterator Chunk Primitives", package: "swift-iterator-primitives"),
+                .product(name: "Span Protocol", package: "swift-span"),
+                .product(name: "Iterator Primitive", package: "swift-iterator"),
+                .product(name: "Iterable", package: "swift-iterator"),
+                .product(name: "Iterator Chunk", package: "swift-iterator"),
             ]
         ),
         .testTarget(
-            name: "Memory Iterator Primitives Tests",
+            name: "Memory Iterator Tests",
             dependencies: [
-                "Memory Iterator Primitives"
+                "Memory Iterator"
             ]
         ),
     ],
