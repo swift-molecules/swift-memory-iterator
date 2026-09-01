@@ -32,7 +32,7 @@ let package = Package(
             name: "Memory Iterator",
             dependencies: [
                 .product(name: "Span Protocol", package: "swift-span"),
-                .product(name: "Iterator Primitive", package: "swift-iterator"),
+                .product(name: "Iterator Protocol", package: "swift-iterator"),
                 .product(name: "Iterable", package: "swift-iterator"),
                 .product(name: "Iterator Chunk", package: "swift-iterator"),
             ]

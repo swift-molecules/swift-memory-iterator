@@ -1,6 +1,6 @@
 public import Iterable
 public import Iterator_Chunk
-public import Iterator_Primitive
+public import Iterator_Protocol
 public import Span_Protocol
 
 extension Span.`Protocol` where Self: Iterable, Self: ~Copyable & ~Escapable {
